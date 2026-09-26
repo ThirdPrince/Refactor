@@ -1,0 +1,32 @@
+[
+  {
+    "createdAt": "2026-09-24T23:24:10.483Z",
+    "name": "Miss Estelle Considine IV",
+    "avatar": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/35.jpg",
+    "id": "1"
+  },
+  {
+    "createdAt": "2026-09-25T04:35:37.072Z",
+    "name": "Lula Ferry",
+    "avatar": "https://avatars.githubusercontent.com/u/71169691",
+    "id": "2"
+  },
+  {
+    "createdAt": "2026-09-24T13:50:52.788Z",
+    "name": "Sean Moore",
+    "avatar": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/80.jpg",
+    "id": "3"
+  },
+  {
+    "createdAt": "2026-09-24T13:32:05.177Z",
+    "name": "Darrell Kunze",
+    "avatar": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/70.jpg",
+    "id": "4"
+  },
+  {
+    "createdAt": "2026-09-25T07:25:12.908Z",
+    "name": "Amy Toy",
+    "avatar": "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/female/512/80.jpg",
+    "id": "5"
+  }
+]
