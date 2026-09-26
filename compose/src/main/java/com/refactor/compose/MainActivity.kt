@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
 
                     LaunchedEffect(Unit) {
                         try {
-                            girls = AppContainer.girlService.getGirls()
+                            girls = NetworkModule.girlService.getGirls()
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }

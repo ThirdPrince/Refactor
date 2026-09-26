@@ -6,7 +6,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
-object AppContainer {
+object NetworkModule {
 
     @OptIn(ExperimentalSerializationApi::class)
     val retrofit: Retrofit by lazy {
