@@ -2,7 +2,7 @@
 
 ## 背景
 
-这是一个基础的 Android 应用，用于从网络获取并展示女孩列表信息。
+这是一个基础的 Android 应用，用于从网络获取并展示好友列表信息。
 
 **API 地址：** https://6ab64262c4c7bb67b918af50.mockapi.io/friends
 
