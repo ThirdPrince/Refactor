@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -27,26 +27,23 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
+import com.refactor.compose.data.NetworkModule
+import com.refactor.compose.domain.model.Friend
+import com.refactor.compose.ui.MainViewModel
 
 class MainActivity : ComponentActivity() {
+    val mainViewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     val navController = rememberNavController()
-                    var girls by remember { mutableStateOf(listOf<Friends>()) }
-
-                    LaunchedEffect(Unit) {
-                        try {
-                            girls = NetworkModule.girlService.getGirls()
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                    }
 
                     NavHost(navController = navController, startDestination = "Friends") {
                         composable("Friends") {
+                            val uiState by mainViewModel.uiState.collectAsState()
                             Column(
                                 modifier = Modifier
                                     .fillMaxSize()
@@ -63,8 +60,9 @@ class MainActivity : ComponentActivity() {
                                 )
 
                                 LazyColumn(modifier = Modifier.fillMaxSize()) {
-                                    items(girls, key = { it.id }) { girl ->
+                                    items(uiState.friendsListItems.size, key = { uiState.friendsListItems[it].id }) { index ->
                                         val context = LocalContext.current
+                                        val friend = uiState.friendsListItems[index]
                                         Card(
                                             modifier = Modifier
                                                 .fillMaxWidth()
@@ -72,7 +70,7 @@ class MainActivity : ComponentActivity() {
                                                 .clickable {
                                                     Toast.makeText(
                                                         context,
-                                                        girl.name,
+                                                        friend.name,
                                                         Toast.LENGTH_SHORT
                                                     ).show()
                                                 },
@@ -84,7 +82,7 @@ class MainActivity : ComponentActivity() {
                                                 verticalAlignment = Alignment.CenterVertically
                                             ) {
                                                 AsyncImage(
-                                                    model = girl.avatar,
+                                                    model = friend.avatar,
                                                     contentDescription = null,
                                                     modifier = Modifier
                                                         .size(80.dp)
@@ -96,14 +94,14 @@ class MainActivity : ComponentActivity() {
 
                                                 Column(modifier = Modifier.weight(1f)) {
                                                     Text(
-                                                        text = girl.name,
+                                                        text = friend.name,
                                                         fontWeight = FontWeight.Bold,
                                                         fontSize = 16.sp,
                                                         maxLines = 1,
                                                         overflow = TextOverflow.Ellipsis
                                                     )
                                                     Text(
-                                                        text = "Created at: ${girl.createdAt}",
+                                                        text = "Created at: ${friend.createAt}",
                                                         fontSize = 12.sp,
                                                         color = Color.Gray,
                                                         maxLines = 1,

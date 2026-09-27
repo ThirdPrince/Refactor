@@ -1,4 +1,4 @@
-package com.refactor.compose
+package com.refactor.compose.data
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -18,7 +18,7 @@ object NetworkModule {
             .build()
     }
 
-    val girlService: GirlService by lazy {
-        retrofit.create(GirlService::class.java)
+    val friendService: FriendService by lazy {
+        retrofit.create(FriendService::class.java)
     }
 }
