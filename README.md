@@ -1,10 +1,10 @@
-# Ex Girls App — Android 重构练习
+# Friends — Android 重构练习
 
 ## 背景
 
 这是一个基础的 Android 应用，用于从网络获取并展示女孩列表信息。
 
-**API 地址：** https://6ab64262c4c7bb67b918af50.mockapi.io/exgirls
+**API 地址：** https://6ab64262c4c7bb67b918af50.mockapi.io/friends
 
 该项目目前的实现存在改进空间，请分析并提出优化建议，并根据优先级选择最重要的部分进行重构。
 
