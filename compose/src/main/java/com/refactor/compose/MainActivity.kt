@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
             MaterialTheme {
                 Surface(color = MaterialTheme.colors.background) {
                     val navController = rememberNavController()
-                    var girls by remember { mutableStateOf(listOf<Girl>()) }
+                    var girls by remember { mutableStateOf(listOf<Friends>()) }
 
                     LaunchedEffect(Unit) {
                         try {
@@ -45,15 +45,15 @@ class MainActivity : ComponentActivity() {
                         }
                     }
 
-                    NavHost(navController = navController, startDestination = "girls") {
-                        composable("girls") {
+                    NavHost(navController = navController, startDestination = "Friends") {
+                        composable("Friends") {
                             Column(
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .background(Color(0xFFF5F5F5))
                             ) {
                                 Text(
-                                    text = "Ex Girls List",
+                                    text = "Friends List",
                                     modifier = Modifier
                                         .padding(16.dp)
                                         .fillMaxWidth(),

@@ -8,13 +8,13 @@ import retrofit2.http.GET
 const val API_URL = "https://6ab64262c4c7bb67b918af50.mockapi.io/"
 
 interface GirlService {
-    @GET("exgirls")
-    suspend fun getGirls(): List<Girl>
+    @GET("friends")
+    suspend fun getGirls(): List<Friends>
 }
 
 @Serializable
 @Parcelize
-data class Girl(
+data class Friends(
     val createdAt: String,
     val name: String,
     val avatar: String,
